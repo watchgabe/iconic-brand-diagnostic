@@ -1,0 +1,1823 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>The Iconic Brand Diagnostic · FSCreative</title>
+<meta name="description" content="A 3-minute diagnostic for creative professionals. Find the gap keeping your brand from becoming unmistakable." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+<link rel="icon" href="https://res.cloudinary.com/dy0kchxh8/image/upload/v1778548956/Artwork5_bbba8026-9c77-4162-a796-822b2558fb9f_wfvsrh.png" />
+<style>
+  :root {
+    --bg: #061410;
+    --bg-2: #071a12;
+    --card: #091a14;
+    --card-2: #0c2218;
+    --line: rgba(238, 102, 62, 0.16);
+    --line-strong: rgba(238, 102, 62, 0.32);
+    --text: #ece7df;
+    --text-mute: #8b9a8f;
+    --text-faint: #5f6e64;
+    --accent: #ee663e;
+    --accent-soft: rgba(238, 102, 62, 0.10);
+    --accent-line: rgba(238, 102, 62, 0.45);
+    --good: #6fb98f;
+    --radius: 14px;
+    --maxw: 880px;
+    --header-h: 72px;
+    --shadow: 0 1px 0 rgba(255,255,255,0.03) inset, 0 30px 60px -30px rgba(0,0,0,0.6);
+  }
+  html[data-theme="light"] {
+    --bg: #f5f0ea;
+    --bg-2: #efe9e1;
+    --card: #fbf7f1;
+    --card-2: #f3ede4;
+    --line: rgba(238, 102, 62, 0.18);
+    --line-strong: rgba(238, 102, 62, 0.38);
+    --text: #1c1a17;
+    --text-mute: #6c655c;
+    --text-faint: #a59c91;
+    --accent: #d9542d;
+    --accent-soft: rgba(217, 84, 45, 0.08);
+    --accent-line: rgba(217, 84, 45, 0.45);
+    --good: #3e7a5b;
+    --shadow: 0 1px 0 rgba(0,0,0,0.04) inset, 0 24px 60px -30px rgba(40,30,20,0.18);
+  }
+
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; background: var(--bg); color: var(--text); }
+  body {
+    font-family: "Helvetica Neue", Helvetica, Arial, system-ui, -apple-system, sans-serif;
+    font-size: 16px;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+    transition: background 220ms ease, color 220ms ease;
+  }
+
+  /* Grain overlay */
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 1;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='220' height='220'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 0.55 0'/></filter><rect width='100%' height='100%' filter='url(%23n)' opacity='0.85'/></svg>");
+    background-size: 220px 220px;
+    opacity: 0.08;
+    mix-blend-mode: overlay;
+  }
+  html[data-theme="light"] body::before { opacity: 0.06; mix-blend-mode: multiply; }
+
+  /* Ambient layer retained for future art direction, currently disabled */
+  .ambient {
+    position: fixed;
+    pointer-events: none;
+    z-index: 0;
+    inset: 0;
+    overflow: hidden;
+    display: none;
+  }
+  .ambient::before {
+    content: "";
+    position: absolute;
+    top: -18vh;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80vw;
+    height: 80vw;
+    max-width: 900px;
+    max-height: 900px;
+    background: radial-gradient(circle at center, var(--accent-soft) 0%, transparent 60%);
+    filter: blur(20px);
+  }
+
+  /* Header */
+  .header {
+    position: sticky;
+    top: 0;
+    z-index: 20;
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    background: color-mix(in srgb, var(--bg) 78%, transparent);
+    border-bottom: none;
+  }
+  .header-inner {
+    max-width: 1110px;
+    margin: 0 auto;
+    min-height: 72px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 26px;
+    gap: 16px;
+    border-bottom: 1px solid var(--line);
+  }
+  .lockup {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+    min-width: 0;
+  }
+  .lockup-icon {
+    width: 38px;
+    height: 38px;
+    flex-shrink: 0;
+    object-fit: contain;
+  }
+  .lockup-text {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.1;
+    min-width: 0;
+  }
+  .lockup-brand {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: 700;
+    font-size: 15px;
+    letter-spacing: -0.02em;
+    color: var(--text);
+  }
+  .lockup-project {
+    font-family: "Space Mono", ui-monospace, monospace;
+    font-size: 10px;
+    color: var(--text-mute);
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    margin-top: 3px;
+  }
+  .theme-toggle {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    padding: 8px 12px 8px 9px;
+    border-radius: 999px;
+    border: 1px solid var(--line);
+    background: transparent;
+    color: var(--text);
+    font-family: "Space Mono", ui-monospace, monospace;
+    font-size: 9px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: border-color 180ms ease, background 180ms ease, color 180ms ease;
+  }
+  .theme-toggle:hover { border-color: var(--line-strong); background: var(--accent-soft); }
+  .theme-toggle svg {
+    width: 18px;
+    height: 18px;
+    padding: 4px;
+    border-radius: 999px;
+    background: var(--text);
+    color: var(--bg);
+    stroke-width: 2.4;
+  }
+  .theme-toggle svg path { display: none; }
+
+  /* Main container */
+  main {
+    position: relative;
+    z-index: 2;
+    max-width: var(--maxw);
+    margin: 0 auto;
+    padding: 56px 24px 96px;
+  }
+  @media (max-width: 720px) {
+    .header-inner { min-height: 66px; padding: 0 18px; }
+    .lockup-icon { width: 34px; height: 34px; }
+    .lockup-brand { font-size: 14px; }
+    .lockup-project { font-size: 8.5px; letter-spacing: 0.13em; }
+    .theme-toggle { padding: 7px 10px 7px 8px; }
+    main { padding: 36px 18px 80px; }
+  }
+
+  /* Eyebrow / meta */
+  .eyebrow {
+    font-family: "Space Mono", ui-monospace, monospace;
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 18px;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .eyebrow::before {
+    content: "";
+    width: 18px; height: 1px; background: var(--accent-line);
+    display: inline-block;
+  }
+
+  /* Typography */
+  h1.display {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: 500;
+    font-size: clamp(34px, 5.6vw, 58px);
+    line-height: 1.04;
+    letter-spacing: -0.02em;
+    margin: 0 0 22px;
+    color: var(--text);
+  }
+  h1.display .serif {
+    font-family: "Instrument Serif", serif;
+    font-style: italic;
+    font-weight: 400;
+    color: var(--accent);
+    letter-spacing: -0.005em;
+  }
+  h2.section {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: 500;
+    font-size: clamp(24px, 3vw, 32px);
+    letter-spacing: -0.015em;
+    line-height: 1.15;
+    margin: 0 0 14px;
+  }
+  h2.section .serif {
+    font-family: "Instrument Serif", serif;
+    font-style: italic;
+    font-weight: 400;
+    color: var(--accent);
+  }
+  h3.sub {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: 500;
+    font-size: 18px;
+    letter-spacing: -0.005em;
+    margin: 0 0 8px;
+  }
+  p.lede {
+    font-size: 17px;
+    color: var(--text-mute);
+    max-width: 60ch;
+    margin: 0 0 28px;
+    line-height: 1.55;
+  }
+  p { color: var(--text-mute); }
+  p strong { color: var(--text); font-weight: 500; }
+
+  .label {
+    font-family: "Space Mono", ui-monospace, monospace;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--text-faint);
+  }
+
+  /* Cards */
+  .card {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 28px;
+    box-shadow: var(--shadow);
+  }
+  .card + .card { margin-top: 18px; }
+  @media (max-width: 720px) {
+    .card { padding: 22px; }
+  }
+
+  /* Pill buttons */
+  .btn {
+    appearance: none;
+    border: 1px solid var(--accent);
+    background: var(--accent);
+    color: #0a0a0a;
+    font-family: "Space Mono", ui-monospace, monospace;
+    font-weight: 700;
+    font-size: 12px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 14px 22px;
+    border-radius: 999px;
+    cursor: pointer;
+    transition: transform 160ms ease, background 160ms ease, color 160ms ease, border-color 160ms ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    text-decoration: none;
+    min-height: 48px;
+    min-width: 196px;
+    text-align: center;
+  }
+  .btn:hover { transform: translateY(-1px); }
+  .btn:active { transform: translateY(0); }
+  .btn .arrow { transition: transform 160ms ease; }
+  .btn:hover .arrow { transform: translateX(3px); }
+
+  .btn.ghost {
+    background: transparent;
+    color: var(--text);
+    border-color: var(--line-strong);
+  }
+  .btn.ghost:hover { border-color: var(--accent); color: var(--accent); }
+
+  /* Bullets / list */
+  ul.bullets {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 18px;
+  }
+  ul.bullets li {
+    padding-left: 22px;
+    position: relative;
+    margin-bottom: 10px;
+    color: var(--text);
+    font-size: 15px;
+  }
+  ul.bullets li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 10px;
+    width: 8px; height: 1px;
+    background: var(--accent);
+  }
+
+  /* ============ LANDING ============ */
+  .landing-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 18px 32px;
+    margin-top: 28px;
+    padding-top: 22px;
+    border-top: 1px solid var(--line);
+  }
+  .landing-meta .item {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    min-width: 120px;
+  }
+  .landing-meta .num {
+    font-family: "Instrument Serif", serif;
+    font-style: italic;
+    font-size: 26px;
+    color: var(--accent);
+  }
+  .landing-meta .lbl {
+    font-family: "Space Mono", ui-monospace, monospace;
+    font-size: 10px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--text-mute);
+  }
+
+  .cta-row { margin-top: 32px; display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
+  .lockin .cta-row .btn { min-width: 244px; }
+  @media (max-width: 720px) {
+    .cta-row { width: 100%; align-items: stretch; }
+    .cta-row .btn, .lockin .cta-row .btn { width: 100%; min-width: 0; }
+    .cta-meta { width: 100%; }
+  }
+  .cta-meta {
+    font-family: "Space Mono", ui-monospace, monospace;
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    color: var(--text-faint);
+    text-transform: uppercase;
+  }
+
+  .pillars {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 12px;
+    margin-top: 24px;
+  }
+  @media (max-width: 720px) {
+    .pillars { grid-template-columns: repeat(2, 1fr); }
+  }
+  .pillar {
+    background: var(--card-2);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    padding: 14px;
+  }
+  .pillar .n {
+    font-family: "Instrument Serif", serif;
+    font-style: italic;
+    font-size: 18px;
+    color: var(--accent);
+    margin-bottom: 6px;
+  }
+  .pillar .t {
+    font-family: "Space Mono", ui-monospace, monospace;
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text);
+  }
+
+  /* ============ QUIZ ============ */
+  .quiz-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 28px;
+    gap: 16px;
+  }
+  .progress-wrap {
+    flex: 1;
+    max-width: 320px;
+  }
+  .progress-bar {
+    height: 3px;
+    background: var(--line);
+    border-radius: 2px;
+    overflow: hidden;
+  }
+  .progress-fill {
+    height: 100%;
+    background: var(--accent);
+    transition: width 300ms cubic-bezier(0.2, 0.8, 0.2, 1);
+  }
+  .progress-meta {
+    margin-top: 8px;
+    display: flex;
+    justify-content: space-between;
+    font-family: "Space Mono", ui-monospace, monospace;
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-faint);
+  }
+
+  .dimension-tag {
+    font-family: "Space Mono", ui-monospace, monospace;
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 14px;
+  }
+
+  .question-text {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: 500;
+    font-size: clamp(22px, 2.6vw, 28px);
+    line-height: 1.25;
+    letter-spacing: -0.01em;
+    margin: 0 0 28px;
+  }
+
+  .answers {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .answer {
+    width: 100%;
+    text-align: left;
+    background: transparent;
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 16px 18px;
+    color: var(--text);
+    font-family: inherit;
+    font-size: 15px;
+    line-height: 1.45;
+    cursor: pointer;
+    transition: border-color 160ms ease, background 160ms ease, color 160ms ease, transform 160ms ease;
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+  }
+  .answer:hover {
+    border-color: var(--accent-line);
+    background: var(--accent-soft);
+  }
+  .answer.selected {
+    border-color: var(--accent);
+    background: var(--accent-soft);
+  }
+  .answer .pip {
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    border: 1px solid var(--line-strong);
+    flex-shrink: 0;
+    margin-top: 2px;
+    position: relative;
+    transition: border-color 160ms ease;
+  }
+  .answer.selected .pip { border-color: var(--accent); }
+  .answer.selected .pip::after {
+    content: "";
+    position: absolute;
+    inset: 4px;
+    border-radius: 50%;
+    background: var(--accent);
+  }
+
+  .quiz-nav {
+    margin-top: 26px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+  .quiz-nav .back {
+    background: transparent;
+    border: none;
+    color: var(--text-mute);
+    font-family: "Space Mono", ui-monospace, monospace;
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    cursor: pointer;
+    padding: 8px 0;
+  }
+  .quiz-nav .back:hover { color: var(--accent); }
+  .quiz-nav .back:disabled { color: var(--text-faint); cursor: default; }
+
+  /* ============ RESULT ============ */
+  .result-score {
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+    margin-bottom: 6px;
+  }
+  .result-score .big {
+    font-family: "Instrument Serif", serif;
+    font-style: italic;
+    font-size: clamp(56px, 9vw, 96px);
+    color: var(--accent);
+    line-height: 1;
+    letter-spacing: -0.02em;
+  }
+  .result-score .of {
+    font-family: "Space Mono", ui-monospace, monospace;
+    font-size: 13px;
+    color: var(--text-mute);
+    letter-spacing: 0.08em;
+  }
+  .result-category {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: 500;
+    font-size: clamp(26px, 3.4vw, 36px);
+    letter-spacing: -0.015em;
+    line-height: 1.15;
+    margin: 4px 0 14px;
+  }
+  .result-blurb { color: var(--text); font-size: 16px; max-width: 60ch; }
+
+  .scorecard { margin-top: 8px; }
+  .score-row { padding: 14px 0; border-bottom: 1px solid var(--line); }
+  .score-row:last-child { border-bottom: none; }
+  .score-row .top {
+    display: flex; justify-content: space-between; align-items: center; gap: 12px;
+    margin-bottom: 8px;
+  }
+  .score-row .name { font-size: 14px; color: var(--text); font-weight: 500; }
+  .score-row .val {
+    font-family: "Space Mono", ui-monospace, monospace;
+    font-size: 11px;
+    color: var(--text-mute);
+    letter-spacing: 0.08em;
+  }
+  .score-row .bar {
+    height: 4px;
+    background: var(--line);
+    border-radius: 3px;
+    overflow: hidden;
+  }
+  .score-row .bar-fill {
+    height: 100%;
+    background: var(--accent);
+    width: 0;
+    transition: width 800ms cubic-bezier(0.2, 0.8, 0.2, 1);
+  }
+  .score-row.lowest .bar-fill { background: var(--accent); }
+  .score-row.lowest .name::after {
+    content: "First gap to fix";
+    font-family: "Space Mono", ui-monospace, monospace;
+    font-size: 9px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-left: 10px;
+    padding: 3px 8px;
+    border: 1px solid var(--accent-line);
+    border-radius: 999px;
+    vertical-align: middle;
+  }
+
+  .first-move {
+    margin-top: 22px;
+    padding: 22px;
+    background: var(--card-2);
+    border-left: 2px solid var(--accent);
+    border-radius: 6px;
+  }
+  .first-move .label { margin-bottom: 8px; display: block; }
+  .first-move p { color: var(--text); margin: 0; font-size: 16px; }
+  .diagnostic-roadmap {
+    margin-top: 18px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+  }
+  .roadmap-step {
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    background: color-mix(in srgb, var(--bg) 48%, transparent);
+    padding: 15px;
+  }
+  .roadmap-step .k {
+    font-family: "Space Mono", ui-monospace, monospace;
+    font-size: 9px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 8px;
+  }
+  .roadmap-step h4 {
+    margin: 0 0 8px;
+    font-size: 14px;
+    letter-spacing: -0.01em;
+  }
+  .roadmap-step p {
+    margin: 0;
+    color: var(--text-mute);
+    font-size: 13.5px;
+    line-height: 1.45;
+  }
+  @media (max-width: 860px) {
+    .diagnostic-roadmap { grid-template-columns: 1fr; }
+  }
+
+  /* Workbook capture form */
+  .capture-form {
+    display: grid;
+    grid-template-columns: 1fr 1fr auto;
+    gap: 10px;
+    margin-top: 18px;
+  }
+  @media (max-width: 720px) {
+    .capture-form { grid-template-columns: 1fr; }
+  }
+  .capture-form input {
+    background: var(--bg-2);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    padding: 14px 16px;
+    color: var(--text);
+    font-family: inherit;
+    font-size: 15px;
+    outline: none;
+    transition: border-color 160ms ease;
+  }
+  .capture-form input::placeholder { color: var(--text-faint); }
+  .capture-form input:focus { border-color: var(--accent); }
+  .capture-form .btn { white-space: nowrap; justify-content: center; }
+  .capture-status {
+    margin-top: 12px;
+    font-family: "Space Mono", ui-monospace, monospace;
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    color: var(--good);
+    text-transform: uppercase;
+    display: none;
+  }
+  .capture-status.visible { display: block; }
+
+  /* Workbook */
+  .workbook { margin-top: 24px; }
+  .workbook-sections { margin-top: 6px; }
+  .wb-section {
+    border-top: 1px solid var(--line);
+    padding: 20px 0;
+  }
+  .wb-section:first-child { border-top: none; padding-top: 0; }
+  .wb-section .n {
+    font-family: "Space Mono", ui-monospace, monospace;
+    font-size: 11px;
+    color: var(--accent);
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+  }
+  .wb-section h4 {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: 500;
+    font-size: 19px;
+    margin: 0 0 8px;
+    color: var(--text);
+    letter-spacing: -0.005em;
+  }
+  .wb-section p { font-size: 15px; margin: 0 0 10px; color: var(--text-mute); }
+  .wb-section ul.bullets li { color: var(--text); font-size: 14px; }
+
+  .wb-actions {
+    margin-top: 22px;
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+
+  /* Lock-in */
+  .lockin {
+    margin-top: 28px;
+    background: var(--card);
+    border: 1px solid var(--accent-line);
+    border-radius: var(--radius);
+    padding: 36px 28px;
+    position: relative;
+    overflow: hidden;
+  }
+  .lockin > * { position: relative; }
+  .lockin h2 { margin-bottom: 10px; }
+  .lockin .program-list {
+    margin: 22px 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px 28px;
+  }
+  @media (max-width: 720px) {
+    .lockin .program-list { grid-template-columns: 1fr; }
+  }
+  .lockin .program-list .item {
+    padding-left: 18px;
+    position: relative;
+    color: var(--text);
+    font-size: 14.5px;
+    line-height: 1.45;
+  }
+  .lockin .program-list .item::before {
+    content: "";
+    position: absolute; left: 0; top: 9px;
+    width: 8px; height: 1px; background: var(--accent);
+  }
+  .fit-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    margin-top: 18px;
+  }
+  @media (max-width: 720px) { .fit-grid { grid-template-columns: 1fr; } }
+  .fit-col {
+    padding: 16px;
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    background: color-mix(in srgb, var(--bg) 50%, transparent);
+  }
+  .fit-col .h {
+    font-family: "Space Mono", ui-monospace, monospace;
+    font-size: 10px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+  .fit-col.yes .h { color: var(--good); }
+  .fit-col.no .h { color: var(--accent); }
+  .fit-col ul { margin: 0; padding: 0; list-style: none; }
+  .fit-col li {
+    font-size: 13.5px;
+    color: var(--text);
+    padding: 4px 0;
+    line-height: 1.4;
+  }
+
+  /* Footer */
+  footer {
+    max-width: var(--maxw);
+    margin: 0 auto;
+    padding: 24px 24px 40px;
+    border-top: 1px solid var(--line);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: "Space Mono", ui-monospace, monospace;
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-faint);
+    position: relative; z-index: 2;
+    flex-wrap: wrap; gap: 8px;
+  }
+  footer a { color: var(--text-mute); text-decoration: none; }
+  footer a:hover { color: var(--accent); }
+
+  /* View visibility */
+  .view { display: none; animation: fade 260ms ease both; }
+  .view.active { display: block; }
+  @keyframes fade {
+    from { opacity: 0; transform: translateY(6px); }
+    to { opacity: 1; transform: none; }
+  }
+
+  /* Smaller helpers */
+  .divider { height: 1px; background: var(--line); margin: 22px 0; }
+  .center { text-align: center; }
+  .small { font-size: 13px; color: var(--text-mute); }
+  .hidden { display: none !important; }
+
+  /* Focus ring */
+  :focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+    border-radius: 6px;
+  }
+</style>
+</head>
+<body>
+<div class="ambient"></div>
+
+<header class="header">
+  <div class="header-inner">
+    <div class="lockup">
+      <img class="lockup-icon" src="https://res.cloudinary.com/dy0kchxh8/image/upload/v1778548956/Artwork5_bbba8026-9c77-4162-a796-822b2558fb9f_wfvsrh.png" alt="FSCreative" />
+      <div class="lockup-text">
+        <span class="lockup-brand">FSCreative™</span>
+        <span class="lockup-project">Iconic Brand Diagnostic</span>
+      </div>
+    </div>
+    <button id="themeToggle" class="theme-toggle" aria-label="Toggle theme">
+      <svg id="themeIcon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+      </svg>
+      <span id="themeLabel">Light</span>
+    </button>
+  </div>
+</header>
+
+<main>
+  <!-- LANDING -->
+  <section id="view-landing" class="view active" aria-labelledby="landing-title">
+    <span class="eyebrow">A diagnostic by Gabe Harris</span>
+    <h1 id="landing-title" class="display">
+      Are you building an <span class="serif">iconic</span> brand,<br/>
+      or just posting content?
+    </h1>
+    <p class="lede">
+      A 3-minute diagnostic for creative professionals with a working offer. Find the gap keeping your brand from becoming unmistakable, then get the first move to close it.
+    </p>
+
+    <div class="cta-row">
+      <button class="btn" id="startBtn" data-action="start">
+        Start the diagnostic
+        <span class="arrow">→</span>
+      </button>
+      <span class="cta-meta">15 questions · ~3 minutes · no sign-in</span>
+    </div>
+
+    <div class="card" style="margin-top:40px;">
+      <h2 class="section">What we mean by <span class="serif">iconic</span></h2>
+      <p style="color:var(--text); max-width:62ch;">
+        Iconic isn't a vibe. It's a set of standards. You can recognize someone's work from across the room because they hold a higher floor than the people around them, on five things at once.
+      </p>
+      <div class="pillars" aria-label="The five dimensions">
+        <div class="pillar"><div class="n">01</div><div class="t">One-of-one positioning</div></div>
+        <div class="pillar"><div class="n">02</div><div class="t">Visual identity &amp; recognition</div></div>
+        <div class="pillar"><div class="n">03</div><div class="t">Real-life anchoring &amp; voice</div></div>
+        <div class="pillar"><div class="n">04</div><div class="t">Content system &amp; consistency</div></div>
+        <div class="pillar"><div class="n">05</div><div class="t">Authority &amp; offer readiness</div></div>
+      </div>
+
+      <div class="landing-meta">
+        <div class="item">
+          <span class="num">15</span>
+          <span class="lbl">Questions</span>
+        </div>
+        <div class="item">
+          <span class="num">5</span>
+          <span class="lbl">Dimensions scored</span>
+        </div>
+        <div class="item">
+          <span class="num">1</span>
+          <span class="lbl">First move to fix</span>
+        </div>
+        <div class="item">
+          <span class="num">∞</span>
+          <span class="lbl">Worth of clarity</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="card" style="margin-top:18px;">
+      <span class="label">Who this is for</span>
+      <h3 class="sub" style="margin-top:8px;">Creative professionals with a working offer.</h3>
+      <p style="color:var(--text-mute); max-width:62ch; margin:0;">
+        Photographers, directors, designers, coaches, agency owners, founders. People who already deliver and now want a personal brand that brings the right inbound in. This isn't for people still figuring out what they sell.
+      </p>
+    </div>
+  </section>
+
+  <!-- QUIZ -->
+  <section id="view-quiz" class="view" aria-labelledby="questionText">
+    <div class="quiz-head">
+      <div class="progress-wrap">
+        <div class="progress-bar"><div class="progress-fill" id="progressFill" style="width:0%"></div></div>
+        <div class="progress-meta">
+          <span id="progressLabel">Question 1 of 15</span>
+          <span id="progressPct">7%</span>
+        </div>
+      </div>
+      <span class="label" id="quizDimension">Positioning</span>
+    </div>
+
+    <div class="card">
+      <div class="dimension-tag" id="questionDimTag">One-of-one positioning</div>
+      <h2 id="questionText" class="question-text">Question text goes here.</h2>
+      <div class="answers" id="answersList" role="radiogroup"></div>
+
+      <div class="quiz-nav">
+        <button class="back" id="backBtn" type="button">← Back</button>
+        <button class="btn" id="nextBtn" type="button" disabled>
+          <span id="nextLabel">Next</span>
+          <span class="arrow">→</span>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- RESULT -->
+  <section id="view-result" class="view" aria-labelledby="resultCategory">
+    <span class="eyebrow">Your diagnostic</span>
+    <div class="card">
+      <div class="result-score">
+        <span class="big" id="resultScore">0</span>
+        <span class="of">/ 45</span>
+      </div>
+      <h1 id="resultCategory" class="result-category">—</h1>
+      <p id="resultBlurb" class="result-blurb">—</p>
+    </div>
+
+    <div class="card">
+      <span class="label">Scorecard</span>
+      <div class="scorecard" id="scorecard"></div>
+      <div class="first-move">
+        <span class="label">Your first move</span>
+        <p id="firstMoveText">—</p>
+      </div>
+      <div class="diagnostic-roadmap" id="diagnosticRoadmap"></div>
+    </div>
+
+    <div class="card" id="captureCard">
+      <h2 class="section">Get the <span class="serif">workbook</span> built around your gap</h2>
+      <p style="color:var(--text-mute); max-width:60ch; margin:0;">
+        A working document with the actual exercises Gabe uses to install positioning, identity, and a content system. Drop your name and email to unlock it.
+      </p>
+      <form class="capture-form" id="captureForm" autocomplete="on" novalidate>
+        <input type="text" id="nameInput" name="name" placeholder="First name" required />
+        <input type="email" id="emailInput" name="email" placeholder="Email" required />
+        <button type="submit" class="btn" id="captureSubmit">Unlock workbook<span class="arrow">→</span></button>
+      </form>
+      <div class="capture-status" id="captureStatus">✓ Workbook unlocked</div>
+      <p class="small" id="emailStatus" style="margin-top:10px; display:none;"></p>
+      <p class="small" style="margin-top:14px;">No spam. Your workbook unlocks instantly here. Email delivery can be wired to ConvertKit or Klaviyo next.</p>
+    </div>
+
+    <!-- Workbook (revealed after form submit) -->
+    <div class="card hidden" id="workbookCard">
+      <span class="eyebrow" style="margin-bottom:8px;">The workbook · copy/paste working doc</span>
+      <h2 class="section">Five sections. Fill them out in order.</h2>
+      <p style="color:var(--text-mute); margin-bottom:18px;">
+        This is the actual working document. Do the prompts in any tool you like, copy the whole thing to your notes app, or download it as Markdown.
+      </p>
+      <div class="workbook-sections">
+
+        <div class="wb-section">
+          <div class="n">01 — One-of-one lane</div>
+          <h4>Define the lane only you can credibly own.</h4>
+          <p>Not your niche. Your lane is the intersection of taste, lived experience, and the result you produce. The thing a competitor literally could not say without lying.</p>
+          <ul class="bullets">
+            <li>One sentence: "I help [specific person] get [specific outcome] through [specific lens only you have]."</li>
+            <li>Three things you do that the obvious competitors will not.</li>
+            <li>The opinion you'd defend on a podcast even if it cost you a client.</li>
+          </ul>
+        </div>
+
+        <div class="wb-section">
+          <div class="n">02 — Avatar + AI Brain inputs</div>
+          <h4>Write the real person, not the demographic.</h4>
+          <p>This becomes the source of truth for every hook, caption, and script. Be specific to the point of discomfort.</p>
+          <ul class="bullets">
+            <li>Their actual day, hour by hour.</li>
+            <li>The real desire they wouldn't admit at a dinner party.</li>
+            <li>What they've already tried that didn't work.</li>
+            <li>The thought that hits them at 11pm.</li>
+            <li>The 12-month dream they're quietly chasing.</li>
+            <li>Drop all of the above into your AI Brain alongside your origin story, offer, and voice.</li>
+          </ul>
+        </div>
+
+        <div class="wb-section">
+          <div class="n">03 — Visual identity decisions</div>
+          <h4>Lock the look so someone can ID your post with the username covered.</h4>
+          <ul class="bullets">
+            <li>Signature color (one, not a palette). Hex code committed.</li>
+            <li>Two fonts: one for display, one for body. Picked, not maybe.</li>
+            <li>Color grade rule for photo/video. One look, applied every time.</li>
+            <li>Settings, light, and composition you'll actually return to. Cinematic means intentional, not expensive.</li>
+          </ul>
+        </div>
+
+        <div class="wb-section">
+          <div class="n">04 — Content capture + batch system</div>
+          <h4>Volume without dropping the bar requires infrastructure.</h4>
+          <ul class="bullets">
+            <li>Capture: where ideas land the moment they happen (voice memos, one note, one inbox).</li>
+            <li>Pillars: three to five themes everything maps back to.</li>
+            <li>Batch days: when scripts get written, when shoots happen, when edits ship.</li>
+            <li>Target: five short-form per week, one to two long-form per week. Build to that rate, don't start there.</li>
+          </ul>
+        </div>
+
+        <div class="wb-section">
+          <div class="n">05 — Quality floor checklist</div>
+          <h4>Each piece is a sample of your taste. Set the floor, then never go under it.</h4>
+          <ul class="bullets">
+            <li>Hook earns the watch in the first two seconds.</li>
+            <li>Frame, light, and audio meet your visual identity.</li>
+            <li>One idea per piece. No filler.</li>
+            <li>Caption holds up if read on its own.</li>
+            <li>If you wouldn't pin it to your profile, don't post it.</li>
+          </ul>
+        </div>
+
+      </div>
+
+      <div class="wb-actions">
+        <button class="btn" id="copyWorkbookBtn" type="button">
+          <span id="copyBtnLabel">Copy workbook to clipboard</span>
+          <span class="arrow">→</span>
+        </button>
+        <button class="btn ghost" id="downloadWorkbookBtn" type="button">
+          Download as Markdown
+        </button>
+      </div>
+    </div>
+
+    <!-- LOCK-IN section -->
+    <div class="lockin hidden" id="lockinCard">
+      <span class="eyebrow" style="margin-bottom:8px;">Next step</span>
+      <h2 class="section">You diagnosed the gap. Now <span class="serif">build the system</span> around it.</h2>
+      <p style="color:var(--text); max-width:62ch; margin:0 0 12px;">
+        The 60-day Frictionless OS engagement is done-with-you. Gabe builds and defines the foundation alongside you, then hands you the controls so the system keeps running when motivation doesn't.
+      </p>
+      <div class="program-list">
+        <div class="item">Brand foundation and positioning built with you, anchored to your actual offer.</div>
+        <div class="item">Visual identity defined around your real taste: signature color, fonts, grade.</div>
+        <div class="item">First batch of scripts and content direction, written together.</div>
+        <div class="item">Capture, batching, and quality-floor system installed inside your week.</div>
+        <div class="item">Handoff so you can run the system without depending on motivation.</div>
+        <div class="item">Direct access to Gabe across the full 60 days, not a course you watch alone.</div>
+      </div>
+
+      <div class="fit-grid">
+        <div class="fit-col yes">
+          <div class="h">Fit for</div>
+          <ul>
+            <li>· Creatives with a working offer or practice.</li>
+            <li>· People who want inbound from better-fit clients, not more followers.</li>
+            <li>· Operators ready to install a system, not chase hacks.</li>
+          </ul>
+        </div>
+        <div class="fit-col no">
+          <div class="h">Not fit for</div>
+          <ul>
+            <li>· People still figuring out what they sell.</li>
+            <li>· Anyone hunting generic creator tactics.</li>
+            <li>· Buyers who want it fully done-for-them with no involvement.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="cta-row" style="margin-top:26px;">
+        <a class="btn" href="https://calendly.com/golocalgroup/watchgabe?month=2026-05" target="_blank" rel="noopener" data-cta="book">
+          Book a 30-minute strategy call
+          <span class="arrow">→</span>
+        </a>
+        <a class="btn ghost" href="https://fscreative.live/" target="_blank" rel="noopener" data-cta="learn">Learn about the brand build</a>
+        <a class="btn ghost" href="https://www.instagram.com/watch.gabe/" target="_blank" rel="noopener" data-cta="dm">DM @watch.gabe</a>
+      </div>
+    </div>
+
+    <div class="center" style="margin-top:28px;">
+      <button class="back" id="restartBtn" style="background:transparent; border:none; color:var(--text-mute); font-family:'Space Mono', ui-monospace, monospace; font-size:11px; letter-spacing:0.1em; text-transform:uppercase; cursor:pointer;">↺ Restart diagnostic</button>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <span>© FSCreative™ · Frictionless OS</span>
+  <span>Designed by Gabe Harris</span>
+</footer>
+
+<script>
+  // -------- Data: questions, dimensions, answers --------
+  const DIMENSIONS = [
+    { id: "positioning", name: "One-of-one positioning", short: "Positioning" },
+    { id: "identity",    name: "Visual identity & recognition", short: "Identity" },
+    { id: "anchor",      name: "Real-life anchoring & voice", short: "Anchor / voice" },
+    { id: "system",      name: "Content system & consistency", short: "System" },
+    { id: "authority",   name: "Authority & offer readiness", short: "Authority" }
+  ];
+
+  // 15 questions, 3 per dimension. Each answer carries a 0-3 score.
+  const QUESTIONS = [
+    // --- Positioning ---
+    {
+      dim: "positioning",
+      text: "If a stranger described your work in one sentence, would they actually be describing you, or any competent person in your category?",
+      answers: [
+        { t: "Honestly, it would sound like a hundred other people.", s: 0 },
+        { t: "Close to generic with one detail that's mine.", s: 1 },
+        { t: "Recognizable. Most of it lands on me specifically.", s: 2 },
+        { t: "It could only be me. The whole sentence is one-of-one.", s: 3 }
+      ]
+    },
+    {
+      dim: "positioning",
+      text: "Do you have an opinion you'd publicly defend even if it cost you a client?",
+      answers: [
+        { t: "I avoid strong takes. Safer that way.", s: 0 },
+        { t: "I have opinions but mostly keep them private.", s: 1 },
+        { t: "I share most of them. A few I still soften.", s: 2 },
+        { t: "Yes, and the work makes that opinion impossible to miss.", s: 3 }
+      ]
+    },
+    {
+      dim: "positioning",
+      text: "Can you finish this sentence cleanly: 'I help [who] get [what] through [your lens]'?",
+      answers: [
+        { t: "I'd have to make it up on the spot.", s: 0 },
+        { t: "I have a rough version. It changes a lot.", s: 1 },
+        { t: "Locked, with one part I still tweak.", s: 2 },
+        { t: "Locked. I've said it the same way for months and it's working.", s: 3 }
+      ]
+    },
+
+    // --- Visual identity ---
+    {
+      dim: "identity",
+      text: "Cover the username on your last five posts. Could someone tell those are yours by feel, color, and energy alone?",
+      answers: [
+        { t: "Not a chance.", s: 0 },
+        { t: "Maybe one of the five.", s: 1 },
+        { t: "Probably three or four.", s: 2 },
+        { t: "All five. The signature is unmistakable.", s: 3 }
+      ]
+    },
+    {
+      dim: "identity",
+      text: "Do you have a signature color, a committed font system, and a color grade rule you actually apply every time?",
+      answers: [
+        { t: "None of those are decided.", s: 0 },
+        { t: "One of the three is locked.", s: 1 },
+        { t: "Two of three are locked, third is fuzzy.", s: 2 },
+        { t: "All three locked and applied consistently.", s: 3 }
+      ]
+    },
+    {
+      dim: "identity",
+      text: "Is your visual world the result of intentional choices, or whatever felt right that day?",
+      answers: [
+        { t: "Mostly whatever felt right that day.", s: 0 },
+        { t: "Some intentional pieces, lots of drift.", s: 1 },
+        { t: "Mostly intentional, occasional one-offs.", s: 2 },
+        { t: "Every setting, frame, and light decision serves the same world.", s: 3 }
+      ]
+    },
+
+    // --- Anchor / voice ---
+    {
+      dim: "anchor",
+      text: "Is your content anchored to something real, like a craft, a practice, or a body of work, or is it mostly takes about the work?",
+      answers: [
+        { t: "Mostly takes. Not much underneath them yet.", s: 0 },
+        { t: "Some craft showing, more talk than work.", s: 1 },
+        { t: "Real anchor with proof, takes ride on top.", s: 2 },
+        { t: "The work itself is the anchor. Takes are evidence, not the show.", s: 3 }
+      ]
+    },
+    {
+      dim: "anchor",
+      text: "Could a stranger reading your last ten captions describe your voice in three words?",
+      answers: [
+        { t: "Probably not. The voice shifts post to post.", s: 0 },
+        { t: "Maybe one consistent trait, the rest is mixed.", s: 1 },
+        { t: "Mostly consistent. Two clear traits.", s: 2 },
+        { t: "Three clear traits, the same across every piece.", s: 3 }
+      ]
+    },
+    {
+      dim: "anchor",
+      text: "Do you have a written avatar (a real person, not a demographic) that you write toward every time?",
+      answers: [
+        { t: "No avatar. I write to whoever shows up.", s: 0 },
+        { t: "Vague avatar in my head, nothing on paper.", s: 1 },
+        { t: "Written avatar, slightly out of date.", s: 2 },
+        { t: "Written, specific to the point of discomfort, and current.", s: 3 }
+      ]
+    },
+
+    // --- System / consistency ---
+    {
+      dim: "system",
+      text: "Do ideas have somewhere to land the moment they happen, or do most of them disappear?",
+      answers: [
+        { t: "Most disappear. I rely on memory.", s: 0 },
+        { t: "I capture sometimes, no system.", s: 1 },
+        { t: "Decent capture habit, scattered across tools.", s: 2 },
+        { t: "One inbox, captured the second it hits.", s: 3 }
+      ]
+    },
+    {
+      dim: "system",
+      text: "Honestly, can you sustain five short-form posts and one to two long-form per week without grinding into burnout?",
+      answers: [
+        { t: "Not even close right now.", s: 0 },
+        { t: "I can do it for a few weeks, then I crash.", s: 1 },
+        { t: "I can hit it most weeks, with effort.", s: 2 },
+        { t: "Yes. The system runs even when I don't feel like it.", s: 3 }
+      ]
+    },
+    {
+      dim: "system",
+      text: "When motivation drops, does your content stop or does the system carry it?",
+      answers: [
+        { t: "It stops. Everything is motivation-dependent.", s: 0 },
+        { t: "It slows down a lot.", s: 1 },
+        { t: "It dips but still ships.", s: 2 },
+        { t: "It ships at the same pace. The system carries it.", s: 3 }
+      ]
+    },
+
+    // --- Authority / offer ---
+    {
+      dim: "authority",
+      text: "If a fit-buyer found you tomorrow, is there an obvious, named offer they can buy?",
+      answers: [
+        { t: "Not really. They'd have to ask what I do.", s: 0 },
+        { t: "There's something, but it's hard to find.", s: 1 },
+        { t: "Yes, named and visible. Conversion is mid.", s: 2 },
+        { t: "Yes. Named, priced, easy to say yes to.", s: 3 }
+      ]
+    },
+    {
+      dim: "authority",
+      text: "Do your inbound conversations come from people who already trust you, or from cold pitches you have to convince?",
+      answers: [
+        { t: "Almost all cold. I'm doing the convincing.", s: 0 },
+        { t: "Mostly cold, some referrals.", s: 1 },
+        { t: "Half inbound, half outreach.", s: 2 },
+        { t: "Mostly inbound from people who already trust the work.", s: 3 }
+      ]
+    },
+    {
+      dim: "authority",
+      text: "Is there a clear authority ranking in your space, and are you actually climbing inside the top tier?",
+      answers: [
+        { t: "I don't know where I sit, and I'm not climbing.", s: 0 },
+        { t: "I know roughly. I'm in the middle and stuck.", s: 1 },
+        { t: "I'm climbing. Not top tier yet.", s: 2 },
+        { t: "I'm inside the top tier and the work shows it.", s: 3 }
+      ]
+    }
+  ];
+
+  // Result categories. Determined by total score + dimension balance.
+  const CATEGORIES = {
+    invisible: {
+      title: "Invisible Portfolio",
+      blurb: "The craft might be there, but nobody can find the lane it's in. Your work is doing more lifting than your brand is, and the right buyers are walking past it. The fix isn't more posting. It's positioning and identity, in that order."
+    },
+    scattered: {
+      title: "Scattered but Capable",
+      blurb: "You have moments of strong work and clear thinking, but the system around it is held together by motivation. That's why output is uneven and the brand feels different month to month. You need infrastructure, not inspiration."
+    },
+    recognizable: {
+      title: "Recognizable but Inconsistent",
+      blurb: "Visually, people can tell it's you. But the content system underneath isn't carrying its weight, so the recognition doesn't compound. Lock in capture, batching, and a quality floor and the same identity will start to pay off."
+    },
+    premium: {
+      title: "Premium in Pieces",
+      blurb: "Most of the iconic stack is there. One or two dimensions are dragging the whole signal down, which is exactly why the brand still feels close but not unmistakable. Fix the lowest-scoring dimension first and the rest will jump."
+    },
+    iconic: {
+      title: "Iconic Brand Candidate",
+      blurb: "You're operating at a level most creatives don't reach. The standards are high across the board. The job now is sharpening, not building. Tighten the lane, raise the quality floor, and make sure the offer is as iconic as the brand around it."
+    }
+  };
+
+  // First-move text per dimension (lowest dim).
+  const FIRST_MOVE = {
+    positioning: "Lock your one-of-one sentence this week. 'I help [specific person] get [specific outcome] through [specific lens only you have].' Write five versions, kill four, live with the winner for thirty days. Nothing else changes the math like a sharp lane.",
+    identity:    "Run the username-covered test on your last five posts. Then commit to one signature color, two fonts, and one grade rule. Stop choosing and start applying. Recognition compounds when the look stops drifting.",
+    anchor:      "Write your avatar today. Real person, their day, their 11pm thought, their 12-month dream. Drop it into your AI Brain alongside your origin story and offer. Every piece you write next should be addressed to that one person.",
+    system:      "Build the capture loop first. One inbox where every idea lands the second it happens. Then block one batch day a week for scripts and one for shoots. The system has to exist before volume can be safe.",
+    authority:   "Name your offer, write the page, put a price on it, and link it in every bio you own. Stop relying on conversations to explain what you sell. An iconic brand without a buyable offer is a portfolio."
+  };
+
+  const ROADMAPS = {
+    positioning: [
+      { k: "First", h: "Lock the lane", p: "Write the clearest version of who you help, what changes, and the lens only you can credibly own." },
+      { k: "Next", h: "Build the proof", p: "Turn your origin story, client work, and strongest beliefs into recurring content pillars." },
+      { k: "Then", h: "Make the offer obvious", p: "Once the lane is sharp, every bio, pinned post, and CTA should point to the same next step." }
+    ],
+    identity: [
+      { k: "First", h: "Make three decisions", p: "Choose one signature color, two fonts, and one grade rule. No moodboard drift." },
+      { k: "Next", h: "Create the quality floor", p: "Turn those decisions into a checklist every post clears before it goes live." },
+      { k: "Then", h: "Repeat until recognized", p: "The goal is that someone knows it is yours before they read the username." }
+    ],
+    anchor: [
+      { k: "First", h: "Write the real avatar", p: "Name the person, their day, their 11pm thought, and what they want in twelve months." },
+      { k: "Next", h: "Load the AI Brain", p: "Add your story, offer, voice, beliefs, and avatar so prompts stop producing generic output." },
+      { k: "Then", h: "Create from lived proof", p: "Use voice notes and real observations as the raw material. AI develops the idea. It should not invent it." }
+    ],
+    system: [
+      { k: "First", h: "Capture everything", p: "Create one place where raw ideas land immediately. Voice memos are usually the easiest start." },
+      { k: "Next", h: "Batch the work", p: "Pick one weekly session for scripts and one for shooting or editing. Stop deciding every day." },
+      { k: "Then", h: "Raise the floor", p: "Use your visual identity as the minimum standard so volume does not make the brand cheaper." }
+    ],
+    authority: [
+      { k: "First", h: "Name the offer", p: "Make the thing you sell clear enough that a stranger understands it without a call." },
+      { k: "Next", h: "Show your ranking", p: "Be honest about what you know, what you are building, and where your proof comes from." },
+      { k: "Then", h: "Install the path", p: "Every strong piece of content needs a clean route to learn more, DM, or book the call." }
+    ]
+  };
+
+  // -------- State (in-memory only, no storage APIs) --------
+  const state = {
+    view: "landing",
+    qIndex: 0,
+    answers: Array(QUESTIONS.length).fill(null), // store score
+    captured: false,
+    theme: "dark"
+  };
+
+  // -------- Helpers --------
+  const $ = (sel) => document.querySelector(sel);
+  const $$ = (sel) => Array.from(document.querySelectorAll(sel));
+
+  function setView(name) {
+    state.view = name;
+    $$(".view").forEach(v => v.classList.remove("active"));
+    const el = document.getElementById("view-" + name);
+    if (el) el.classList.add("active");
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }
+
+  function setTheme(t) {
+    state.theme = t;
+    document.documentElement.setAttribute("data-theme", t);
+    $("#themeLabel").textContent = t === "dark" ? "Light" : "Dark";
+    // Swap icon
+    const icon = $("#themeIcon");
+    if (t === "dark") {
+      icon.innerHTML = '<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>';
+    } else {
+      icon.innerHTML = '<circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/>';
+    }
+  }
+
+  function dimensionMeta(id) { return DIMENSIONS.find(d => d.id === id); }
+
+  // -------- Quiz rendering --------
+  function renderQuestion() {
+    const q = QUESTIONS[state.qIndex];
+    const dim = dimensionMeta(q.dim);
+    $("#questionText").textContent = q.text;
+    $("#questionDimTag").textContent = dim.name;
+    $("#quizDimension").textContent = dim.short;
+
+    const pct = Math.round(((state.qIndex) / QUESTIONS.length) * 100);
+    $("#progressFill").style.width = pct + "%";
+    $("#progressLabel").textContent = `Question ${state.qIndex + 1} of ${QUESTIONS.length}`;
+    $("#progressPct").textContent = pct + "%";
+
+    const list = $("#answersList");
+    list.innerHTML = "";
+    q.answers.forEach((a, i) => {
+      const btn = document.createElement("button");
+      btn.type = "button";
+      btn.className = "answer";
+      btn.setAttribute("role", "radio");
+      btn.setAttribute("aria-checked", "false");
+      btn.dataset.score = a.s;
+      btn.dataset.idx = i;
+      btn.innerHTML = `<span class="pip" aria-hidden="true"></span><span>${a.t}</span>`;
+      if (state.answers[state.qIndex] !== null && state.answers[state.qIndex] === a.s && _activeIdxMatches(state.qIndex, i)) {
+        btn.classList.add("selected");
+        btn.setAttribute("aria-checked", "true");
+      }
+      btn.addEventListener("click", () => selectAnswer(state.qIndex, i, a.s));
+      list.appendChild(btn);
+    });
+
+    // restore selection if present
+    if (state.answers[state.qIndex] !== null) {
+      const selectedIdx = _findSelectedIdx(state.qIndex);
+      if (selectedIdx !== -1) {
+        const btns = list.querySelectorAll(".answer");
+        btns[selectedIdx]?.classList.add("selected");
+        btns[selectedIdx]?.setAttribute("aria-checked", "true");
+      }
+    }
+
+    $("#backBtn").disabled = state.qIndex === 0;
+    const last = state.qIndex === QUESTIONS.length - 1;
+    $("#nextLabel").textContent = last ? "See your diagnostic" : "Next";
+    $("#nextBtn").disabled = state.answers[state.qIndex] === null;
+  }
+
+  // We store {score, idx} pairs to handle ties between answer values cleanly.
+  function _activeIdxMatches(qi, i) {
+    return state._selectedIdx?.[qi] === i;
+  }
+  function _findSelectedIdx(qi) {
+    return state._selectedIdx?.[qi] ?? -1;
+  }
+
+  function selectAnswer(qi, idx, score) {
+    state.answers[qi] = score;
+    state._selectedIdx = state._selectedIdx || Array(QUESTIONS.length).fill(-1);
+    state._selectedIdx[qi] = idx;
+    // refresh selection
+    const btns = $("#answersList").querySelectorAll(".answer");
+    btns.forEach(b => { b.classList.remove("selected"); b.setAttribute("aria-checked", "false"); });
+    btns[idx]?.classList.add("selected");
+    btns[idx]?.setAttribute("aria-checked", "true");
+    $("#nextBtn").disabled = false;
+  }
+
+  // -------- Result rendering --------
+  function computeResults() {
+    const dimScores = {};
+    DIMENSIONS.forEach(d => dimScores[d.id] = { score: 0, max: 0 });
+    QUESTIONS.forEach((q, i) => {
+      const s = state.answers[i] ?? 0;
+      dimScores[q.dim].score += s;
+      dimScores[q.dim].max += 3;
+    });
+    const total = Object.values(dimScores).reduce((acc, v) => acc + v.score, 0);
+    const totalMax = QUESTIONS.length * 3;
+
+    // find lowest dimension
+    let lowest = DIMENSIONS[0].id;
+    let lowestPct = 999;
+    DIMENSIONS.forEach(d => {
+      const ds = dimScores[d.id];
+      const p = ds.score / ds.max;
+      if (p < lowestPct) { lowestPct = p; lowest = d.id; }
+    });
+
+    // category logic
+    const pct = total / totalMax;
+    let category = "scattered";
+    const posPct = dimScores.positioning.score / dimScores.positioning.max;
+    const idPct = dimScores.identity.score / dimScores.identity.max;
+    const sysPct = dimScores.system.score / dimScores.system.max;
+
+    if (pct < 0.30) category = "invisible";
+    else if (pct < 0.50) category = (idPct < 0.4 && posPct < 0.4) ? "invisible" : "scattered";
+    else if (pct < 0.65) category = (idPct >= 0.6 && sysPct < 0.5) ? "recognizable" : "scattered";
+    else if (pct < 0.82) category = "premium";
+    else category = "iconic";
+
+    return { dimScores, total, totalMax, lowest, category };
+  }
+
+  function renderResult() {
+    const r = computeResults();
+    $("#resultScore").textContent = r.total;
+    $("#resultCategory").textContent = CATEGORIES[r.category].title;
+    $("#resultBlurb").textContent = CATEGORIES[r.category].blurb;
+
+    // scorecard
+    const sc = $("#scorecard");
+    sc.innerHTML = "";
+    DIMENSIONS.forEach(d => {
+      const ds = r.dimScores[d.id];
+      const pct = Math.round((ds.score / ds.max) * 100);
+      const row = document.createElement("div");
+      row.className = "score-row" + (d.id === r.lowest ? " lowest" : "");
+      row.innerHTML = `
+        <div class="top">
+          <span class="name">${d.name}</span>
+          <span class="val">${ds.score}/${ds.max} · ${pct}%</span>
+        </div>
+        <div class="bar"><div class="bar-fill" data-target="${pct}"></div></div>
+      `;
+      sc.appendChild(row);
+    });
+
+    // first move
+    $("#firstMoveText").textContent = FIRST_MOVE[r.lowest];
+
+    const roadmap = $("#diagnosticRoadmap");
+    roadmap.innerHTML = ROADMAPS[r.lowest].map(step => `
+      <div class="roadmap-step">
+        <div class="k">${step.k}</div>
+        <h4>${step.h}</h4>
+        <p>${step.p}</p>
+      </div>
+    `).join("");
+
+    // animate bars after a tick
+    requestAnimationFrame(() => {
+      sc.querySelectorAll(".bar-fill").forEach(b => {
+        const t = b.getAttribute("data-target");
+        b.style.width = t + "%";
+      });
+    });
+
+    // reset capture form state
+    if (state.captured) {
+      $("#captureStatus").classList.add("visible");
+      $("#captureSubmit").innerHTML = '✓ Workbook unlocked';
+      $("#workbookCard").classList.remove("hidden");
+      $("#lockinCard").classList.remove("hidden");
+    }
+  }
+
+  // -------- Workbook markdown export --------
+  function workbookMarkdown() {
+    const r = computeResults();
+    const dimLines = DIMENSIONS.map(d => {
+      const ds = r.dimScores[d.id];
+      return `- ${d.name}: ${ds.score}/${ds.max}`;
+    }).join("\n");
+
+    return `# The Iconic Brand Diagnostic — Workbook
+FSCreative · Frictionless OS
+
+## Your diagnostic
+- Total score: ${r.total}/${r.totalMax}
+- Category: ${CATEGORIES[r.category].title}
+- First gap to fix: ${dimensionMeta(r.lowest).name}
+
+### Scorecard
+${dimLines}
+
+### Your first move
+${FIRST_MOVE[r.lowest]}
+
+### From there, move in this order
+${ROADMAPS[r.lowest].map(step => `- ${step.k}: ${step.h}. ${step.p}`).join("\n")}
+
+---
+
+## 01 — One-of-one lane
+Define the lane only you can credibly own.
+
+- One sentence: "I help [specific person] get [specific outcome] through [specific lens only you have]."
+- Three things you do that the obvious competitors will not.
+- The opinion you'd defend on a podcast even if it cost you a client.
+
+## 02 — Avatar + AI Brain inputs
+Write the real person, not the demographic.
+
+- Their actual day, hour by hour.
+- The real desire they wouldn't admit at a dinner party.
+- What they've already tried that didn't work.
+- The thought that hits them at 11pm.
+- The 12-month dream they're quietly chasing.
+- Drop all of the above into your AI Brain alongside your origin story, offer, and voice.
+
+## 03 — Visual identity decisions
+Lock the look so someone can ID your post with the username covered.
+
+- Signature color (one, hex committed).
+- Two fonts: one display, one body.
+- Color grade rule for photo/video.
+- Settings, light, composition you'll return to.
+
+## 04 — Content capture + batch system
+Volume without dropping the bar requires infrastructure.
+
+- Capture: one inbox, ideas land instantly.
+- Pillars: three to five themes everything maps to.
+- Batch days: scripts, shoots, edits.
+- Target: 5 short-form / week, 1-2 long-form / week. Build to that rate.
+
+## 05 — Quality floor checklist
+Each piece is a sample of your taste. Set the floor, then never go under it.
+
+- Hook earns the watch in the first two seconds.
+- Frame, light, audio meet your visual identity.
+- One idea per piece. No filler.
+- Caption holds up if read on its own.
+- If you wouldn't pin it, don't post it.
+
+---
+
+Next step: lock in the system with FSCreative — 60-day done-with-you build.
+Book a call: https://calendly.com/golocalgroup/watchgabe?month=2026-05
+Learn about the brand build: https://fscreative.live/
+DM @watch.gabe: https://www.instagram.com/watch.gabe/
+`;
+  }
+
+  function diagnosticPayload(name, email) {
+    const r = computeResults();
+    const category = CATEGORIES[r.category];
+    const scorecard = {};
+    DIMENSIONS.forEach(d => {
+      const ds = r.dimScores[d.id];
+      scorecard[d.id] = {
+        name: d.name,
+        score: ds.score,
+        max: ds.max
+      };
+    });
+
+    return {
+      name,
+      email,
+      total_score: r.total,
+      total_max: r.totalMax,
+      category: category.title,
+      first_gap: dimensionMeta(r.lowest).name,
+      first_move: FIRST_MOVE[r.lowest],
+      scorecard,
+      workbook_markdown: workbookMarkdown()
+    };
+  }
+
+  function trackDiagnosticEvent(eventName, detail = {}) {
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({ event: eventName, ...detail });
+
+    if (typeof window.gtag === "function") {
+      window.gtag("event", eventName, detail);
+    }
+
+    if (typeof window.fbq === "function") {
+      window.fbq("trackCustom", eventName, detail);
+    }
+  }
+
+  async function submitDiagnostic(payload) {
+    const response = await fetch("/api/subscribe", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        ...payload,
+        referrer: window.location.href
+      })
+    });
+
+    const data = await response.json().catch(() => ({}));
+    if (!response.ok || !data.ok) {
+      const error = new Error(data.error || "Email delivery failed.");
+      error.data = data;
+      throw error;
+    }
+    return data;
+  }
+
+  // -------- Wire events --------
+  document.addEventListener("DOMContentLoaded", () => {
+    // theme toggle
+    setTheme("dark");
+    $("#themeToggle").addEventListener("click", () => {
+      setTheme(state.theme === "dark" ? "light" : "dark");
+    });
+
+    // start quiz
+    $("#startBtn").addEventListener("click", () => {
+      state.qIndex = 0;
+      state.answers = Array(QUESTIONS.length).fill(null);
+      state._selectedIdx = Array(QUESTIONS.length).fill(-1);
+      setView("quiz");
+      renderQuestion();
+    });
+
+    // back / next
+    $("#backBtn").addEventListener("click", () => {
+      if (state.qIndex > 0) {
+        state.qIndex--;
+        renderQuestion();
+      }
+    });
+
+    $("#nextBtn").addEventListener("click", () => {
+      if (state.answers[state.qIndex] === null) return;
+      if (state.qIndex < QUESTIONS.length - 1) {
+        state.qIndex++;
+        renderQuestion();
+      } else {
+        // complete
+        $("#progressFill").style.width = "100%";
+        setView("result");
+        renderResult();
+      }
+    });
+
+    // capture form
+    $("#captureForm").addEventListener("submit", (e) => {
+      e.preventDefault();
+      const name = $("#nameInput").value.trim();
+      const email = $("#emailInput").value.trim();
+      const validEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+      if (!name || !validEmail) {
+        // simple inline feedback
+        if (!name) $("#nameInput").focus();
+        else $("#emailInput").focus();
+        return;
+      }
+      const payload = diagnosticPayload(name, email);
+      state.captured = true;
+      window.FSC_DIAGNOSTIC_PAYLOAD = payload;
+      trackDiagnosticEvent("diagnostic_workbook_unlocked", {
+        category: payload.category,
+        first_gap: payload.first_gap,
+        total_score: payload.total_score
+      });
+      $("#captureStatus").classList.add("visible");
+      $("#captureSubmit").innerHTML = '✓ Workbook unlocked';
+      $("#workbookCard").classList.remove("hidden");
+      $("#lockinCard").classList.remove("hidden");
+      $("#emailStatus").style.display = "block";
+      $("#emailStatus").textContent = "Sending your result to your inbox...";
+      // scroll to workbook
+      setTimeout(() => {
+        $("#workbookCard").scrollIntoView({ behavior: "smooth", block: "start" });
+      }, 100);
+
+      submitDiagnostic(payload)
+        .then((data) => {
+          if (data.custom_fields_saved === false) {
+            $("#emailStatus").textContent = "You're on the list. The instant workbook is unlocked here. Create the Kit custom fields to send the personalized answers by email.";
+          } else {
+            $("#emailStatus").textContent = "Sent. Your diagnostic and workbook should hit your inbox in a minute.";
+          }
+        })
+        .catch(() => {
+          $("#emailStatus").textContent = "Workbook unlocked here. Email delivery will work once this is running on Vercel with Kit env vars.";
+        });
+    });
+
+    // copy workbook
+    $("#copyWorkbookBtn").addEventListener("click", async () => {
+      const md = workbookMarkdown();
+      try {
+        await navigator.clipboard.writeText(md);
+        $("#copyBtnLabel").textContent = "✓ Copied to clipboard";
+        setTimeout(() => { $("#copyBtnLabel").textContent = "Copy workbook to clipboard"; }, 2200);
+      } catch (err) {
+        // fallback
+        const ta = document.createElement("textarea");
+        ta.value = md;
+        document.body.appendChild(ta);
+        ta.select();
+        try { document.execCommand("copy"); } catch (e) {}
+        document.body.removeChild(ta);
+        $("#copyBtnLabel").textContent = "✓ Copied";
+        setTimeout(() => { $("#copyBtnLabel").textContent = "Copy workbook to clipboard"; }, 2200);
+      }
+    });
+
+    // download workbook
+    $("#downloadWorkbookBtn").addEventListener("click", () => {
+      const md = workbookMarkdown();
+      const blob = new Blob([md], { type: "text/markdown;charset=utf-8" });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = "iconic-brand-diagnostic-workbook.md";
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      setTimeout(() => URL.revokeObjectURL(url), 1500);
+    });
+
+    // restart
+    $("#restartBtn").addEventListener("click", () => {
+      state.qIndex = 0;
+      state.answers = Array(QUESTIONS.length).fill(null);
+      state._selectedIdx = Array(QUESTIONS.length).fill(-1);
+      state.captured = false;
+      $("#captureStatus").classList.remove("visible");
+      $("#emailStatus").style.display = "none";
+      $("#emailStatus").textContent = "";
+      $("#captureSubmit").innerHTML = 'Unlock workbook<span class="arrow">→</span>';
+      $("#workbookCard").classList.add("hidden");
+      $("#lockinCard").classList.add("hidden");
+      $("#nameInput").value = "";
+      $("#emailInput").value = "";
+      setView("landing");
+    });
+
+    // CTA analytics hooks
+    document.querySelectorAll('a[data-cta]').forEach(a => {
+      a.addEventListener("click", () => {
+        trackDiagnosticEvent("diagnostic_cta_click", {
+          cta: a.getAttribute("data-cta"),
+          href: a.getAttribute("href")
+        });
+      });
+    });
+  });
+</script>
+</body>
+</html>

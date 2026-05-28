@@ -1,0 +1,13 @@
+{
+  "name": "iconic-brand-diagnostic",
+  "version": "1.0.0",
+  "private": true,
+  "description": "FSCreative Iconic Brand Diagnostic",
+  "scripts": {
+    "dev": "vercel dev",
+    "deploy": "vercel --prod"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
